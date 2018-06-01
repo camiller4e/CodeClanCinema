@@ -9,7 +9,7 @@ Customer.delete_all()
 Ticket.delete_all()
 
 film1 = Film.new({
-  'title' => 'Robocop',
+  'title' => 'RobotPoliceman',
   'price' => '5'
   })
   film1.save()
@@ -76,7 +76,11 @@ film1 = Film.new({
                 ticket6 = Ticket.new({'film_id' => film2.id, 'customer_id' => customer2.id})
                 ticket6.save()
 
+                film1.title = 'Robocop'
+                film1.update()
 
+                customer1.buy_ticket(film1)
+                customer1.update
 
 
                 binding.pry
