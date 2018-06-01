@@ -44,6 +44,14 @@ class Film
     return results.map {|result| Customer.new(result)}
   end
 
+  def screening()
+    sql = "SELECT * FROM screenings WHERE id = $1"
+    values = [@id]
+    screenings = SqlRunner.run(sql, values)
+    result = screenings.map {|screening| Screening.new(screening)}
+    return result
+  end
+
   def self.all
     sql = "SELECT * FROM films"
     values = []
